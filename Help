@@ -1,0 +1,48 @@
+const studentForm = document.getElementById('studentForm');
+
+const studentsDiv = document.getElementById('students');
+
+studentForm.addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    const nameInput = document.getElementById('name');
+
+    const universityInput = document.getElementById('university');
+
+    const name = nameInput.value;
+
+    const university = universityInput.value;
+
+    const student = { name, university };
+
+    addStudent(student);
+
+    nameInput.value = '';
+
+    universityInput.value = '';
+
+});
+
+function addStudent(student) {
+
+    const studentElement = document.createElement('div');
+
+    studentElement.classList.add('student');
+
+    const nameElement = document.createElement('h3');
+
+    nameElement.innerText = student.name;
+
+    const universityElement = document.createElement('p');
+
+    universityElement.innerText = student.university;
+
+    studentElement.appendChild(nameElement);
+
+    studentElement.appendChild(universityElement);
+
+    studentsDiv.appendChild(studentElement);
+
+}
+
